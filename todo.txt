@@ -1,0 +1,38 @@
+TODO 
+1. prevent sql injection
+2. Wrong Phone No updating in database
+3. Create security-question table
+4. Restrict Pickup Date
+5. Remove Sign up Sign in replace with log out
+6. For About Us Check screenshot and https://pivotcomm.com/
+7. Admin warehouse page- show items collected
+8. Fetch all the ngos requiring an item and then assign it to html
+9. Admin Dipatch page for warehouse items
+10. After delivery volunteer ticks then ngo ticks then admin ticks to 	  update ngo requests(subtract)
+11. Role based routing ROUTE MANAGER.PHP
+12. Link Contributor home ,about us , contact us 
+13. Create a Warehouse Section in Admin Area
+14. Get Started Button
+15. Link to delivery page
+16. a file which will check whether a user is logged in or not, he is a contri, volu or ngo isset($_Session[cart]) to not allow to checkout page without items
+17. isPicked and isDelivered in orders table
+18. Your past donations in contri page
+19. include php in html files
+20. Insert first data as Warehouse with id = 1 in ngos table;
+21. $orders which contains all the consignments 
+22. add quantity in ngo option in cart
+23. Change district in ngo table to pincode
+24. Remaining item must go to Warehouse
+25. Acknowledge delivery admin or ngo then delete the consignment generate date when Volunteer picks consignment
+26. add isDelivered column in NGO
+27. Show item and NGO in contributors page
+28. In the admin page add card which shows needs and  date of request, on clicking it go to  the  next page similar to ngo request page
+29. mysql date converter
+30. sHOW ORDER DATE IN cONTRIBUTOR
+31. ADD NAVBAR BRANDS IN EVERY PAGE ACCORDING TO LINK
+mysql -u root -p 
+32. add seesion check in login and login.php
+33. Add session id = 0 for admin during login
+34. SET session cart = -1 once the order is updated
+35. sendfrom warehouse page add deliveries to the ngo as well as during login or unset 
+36.Also count the deliveries that are going to ngo to show the needs group by item
