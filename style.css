@@ -869,3 +869,73 @@ input[type=number]::-webkit-outer-spin-button {
 	color: grey;
 	cursor: not-allowed;
 }
+
+/* Admin - NGO Details */
+
+.ngo_status{
+	width: 300px;
+	max-width: 300px;
+	height: 345px;
+	background: rgba(255, 255, 255, 0.5);
+	float: left;
+	color: black;
+	padding: 20px;
+	box-sizing: border-box;
+	box-shadow: 0px 2px 0px 2px rgba(255, 255, 255,0.3),
+				0px 0px 8px 8px rgba(55, 55, 55,0.4);
+	float: left;
+	margin: 30px calc((100% - 900px) / 6);
+}
+.ngo_status:nth-child(1){
+	background: rgba(255, 205, 204, 0.8);
+}
+.ngo_status h3{
+	margin: 0;
+	text-align: center;
+	font-weight: bold;
+	padding-bottom: 15px;
+	color: #007bff;
+
+}
+.ngo_status th, .ngo_status td{
+	
+	padding: 4px;
+	text-align: center;
+	font-size: 18px;
+	border: 2px solid gray;
+	letter-spacing: 2px;
+}
+.ngo_status table{
+	width: 100%;
+	text-transform: uppercase;
+}
+.ngo_status button{
+	text-transform: uppercase;
+	font-weight: normal;
+	box-sizing: border-box;
+	outline: none;
+} 
+.ngo_status button{
+	width: 80%;
+	margin: 0 10%;
+	margin-top: 15px;
+	letter-spacing: 2px;
+	font-size: 20px;
+	padding: 3px;
+	border-radius: 4px;
+	border: 1px solid black;
+	background-color: orange;
+}
+@media (max-width: 946px){
+    .ngo_status{
+    	width: 300px;
+    	margin: 30px calc((100% - 600px) / 4);
+    }
+}
+@media (max-width: 640px){
+    .ngo_status{
+    	float: none;
+    	width: 300px;
+    	margin: 8% auto;
+    }
+}

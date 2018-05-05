@@ -12,7 +12,7 @@
 	{ 
 		$qty = 0;
 		$temp = "<option value='-1' selected='true' disabled='disabled'>Select Organization</option>";
-		$sql_query = "SELECT * FROM `requests` WHERE `$keys[$i]` > '$qty'";
+		$sql_query = "SELECT * FROM `requests` WHERE `$keys[$i]` > '$qty AND `$ngo_id` != 1";
 		$results = mysqli_query($connection,$sql_query) or die ("Error: " . mysqli_error());
 		if (mysqli_num_rows($results) > 0) {
 			while($row = mysqli_fetch_array($results,MYSQLI_ASSOC))
@@ -20,7 +20,7 @@
 				$temp .= "<option value='" . $row["ngo_id"] . "'>" . $row["ngo_name"] . " (Need:" . $row[$keys[$i]] . ")</option>";
 			}
 		}
-		$temp .= "<option value='100'>Warehouse</option>";
+		$temp .= "<option value='1'>Warehouse</option>";
 		$items[$keys[$i]] = $temp;
 	}
 	mysqli_close($connection);

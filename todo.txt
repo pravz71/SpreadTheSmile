@@ -14,7 +14,7 @@ TODO
 13. Create a Warehouse Section in Admin Area
 14. Get Started Button
 15. Link to delivery page
-16. a file which will check whether a user is logged in or not, he is a contri, volu or ngo isset($_Session[cart]) to not allow to checkout page without items
+16. a file which will check whether a user is logged in or not, he is a contri, volu or ngo isset($_Session[cart] not allow to checkout page without items --->NOT DONE
 17. isPicked and isDelivered in orders table
 18. Your past donations in contri page
 19. include php in html files
@@ -22,17 +22,30 @@ TODO
 21. $orders which contains all the consignments 
 22. add quantity in ngo option in cart
 23. Change district in ngo table to pincode
-24. Remaining item must go to Warehouse
+24. Remaining item must go to Warehouse    --->NOT DONE
 25. Acknowledge delivery admin or ngo then delete the consignment generate date when Volunteer picks consignment
-26. add isDelivered column in NGO
+26. 
 27. Show item and NGO in contributors page
 28. In the admin page add card which shows needs and  date of request, on clicking it go to  the  next page similar to ngo request page
 29. mysql date converter
 30. sHOW ORDER DATE IN cONTRIBUTOR
-31. ADD NAVBAR BRANDS IN EVERY PAGE ACCORDING TO LINK
+31. ADD NAVBAR BRANDS IN EVERY PAGE ACCORDING TO LINK --->NOT DONE --->NOT DONE
+
+32. add seesion check in login and login.php --->NOT DONE
+33. Add session id = 0 for admin during login --->NOT DONE
+34. SET session cart = -1 once the order is updated as well as during login or unset --->NOT DONE
+35. sendfrom warehouse page add deliveries to the ngo  --->NOT DONE
+36.Also count the deliveries that are going to ngo to show the needs group by item --->NOT DONE
+37. While sending from warehouse max will be whichever is small ngo request or warehouse contents.
+
+git status
+git add . 
+git  commit -m "msg"
+git push origin master -f
+
+
+
+
 mysql -u root -p 
-32. add seesion check in login and login.php
-33. Add session id = 0 for admin during login
-34. SET session cart = -1 once the order is updated
-35. sendfrom warehouse page add deliveries to the ngo as well as during login or unset 
-36.Also count the deliveries that are going to ngo to show the needs group by item
+
+
