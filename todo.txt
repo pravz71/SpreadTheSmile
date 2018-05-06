@@ -37,7 +37,8 @@ TODO
 35. sendfrom warehouse page add deliveries to the ngo  --->NOT DONE
 36.Also count the deliveries that are going to ngo to show the needs group by item --->NOT DONE
 37. While sending from warehouse max will be whichever is small ngo request or warehouse contents.
-
+38. copy sendfromwh code to ngodetails page so that both are equal and also to carts page
+39. check javascript for ngo details
 git status
 git add . 
 git  commit -m "msg"

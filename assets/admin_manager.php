@@ -4,7 +4,7 @@
 	{
 		header('Location: login.html');
 	}
-	else if ($_SESSION["role"] != "volunteer") 
+	else if ($_SESSION["role"] != "admin") 
 	{
 		header('Location: assets/user_manager.php');
 	}

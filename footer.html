@@ -93,6 +93,39 @@
 					</form>
 				</div>
 			</div>
+			<div id="update_request" >
+					<h2>Update Request</h2>
+					<form action="assets/update_request.php" method="POST">
+						<label for="s_clothes">Clothes (S):</label>
+						<input type="number" name="s_clothes" min="0" max="1000" value="0">
+						<label for="l_clothes">Clothes (L):</label>
+						<input type="number" name="l_clothes" min="0" max="1000" value="0">
+						<label for="utensils">Utensils:</label>
+						<input type="number" name="utensils" min="0" max="1000" value="0">
+						<label for="stationeries">Stationeries:</label>
+						<input type="number" name="stationeries" min="0" max="1000" value="0">
+						<label for="blankets">Blankets:</label>
+						<input type="number" name="blankets" min="0" max="1000" value="0">
+						<button type="submit">Update</button>
+					</form>
+				</div>
+			</div>
+			<div  class = "ngo_status">
+					<h3>Send Items</h3>
+					<form action="assets/send_from_warehouse.php" method="POST" onsubmit="return validateSentItems()">
+						<label for="s_clothes">Clothes (S):</label>
+						<input type="number" name="s_clothes" min="0" max="1000" value="0">
+						<label for="l_clothes">Clothes (L):</label>
+						<input type="numeric" name="l_clothes" min="0" max="<?php echo(min($l_clothes,$wl_clothes))?>" value="0"  size="4">
+						<label for="utensils">Utensils:</label>
+						<input type="number" name="utensils" min="0" max="<?php echo(min($utensils,$wutensils))?>" value="0">
+						<label for="stationeries">Stationeries:</label>
+						<input type="number" name="stationeries" min="0" max="<?php echo(min($stationeries,$wstationeries))?>" value="0">
+						<label for="blankets">Blankets:</label>
+						<input type="number" name="blankets" min="0" max=" <?php echo(min($blankets,$wblankets))?>" value="0">
+						<button type="submit">Send</button>
+					</form>
+				</div>
 		</div>
 		<div id="push"></div>
 		<footer>

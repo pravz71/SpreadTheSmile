@@ -1,5 +1,5 @@
-<?php 
-	session_start();
+<?php
+	include_once("assets/volunteer_manager.php");
 	include_once("assets/db_connect.php");
 	$volunteer_id = $_SESSION['id']; 
 ?>
@@ -26,7 +26,7 @@
 		<nav class="navbar navbar-default navbar-inverse">
 			<div class="container">
 				<div class="navbar-header">
-					<a href="#" class="navbar-brand">SpreadTheSmile</a>
+					<a href="index.html" class="navbar-brand">SpreadTheSmile</a>
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 				        <span class="sr-only">Toggle navigation</span>
 				        <span class="icon-bar"></span>
@@ -36,7 +36,8 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="#">Home</a></li>
+						<li><a href="unassignedvolunteer.php">Home</a></li>
+						<li class="nav-item active"><a href="volunteertasks.php">Your Tasks</a></li>
 						<li><a href="#">About Us</a></li>
 						<li><a href="#">Contact Us</a></li>
 					</ul>

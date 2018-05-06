@@ -1,35 +1,11 @@
-<?php  
-	session_start();
+<?php 
+	include_once("assets/admin_manager.php");
 	include_once("assets/db_connect.php");
-	$ngo_id = $_POST["ngo_id"];
-	$sql_query = "SELECT * FROM `requests` WHERE  `ngo_id` = '$ngo_id'";
-	$results = mysqli_query($connection,$sql_query) or die ("Error : " . mysqli_error());
-	$row = mysqli_fetch_array($results,MYSQLI_ASSOC);
-	$s_clothes = $row['s_clothes'];
-	$l_clothes = $row['l_clothes'];
-	$utensils = $row['utensils'];
-	$stationeries = $row['stationeries'];
-	$blankets = $row['blankets'];
-	$sql_query = "SELECT consignments.item, SUM(consignments.quantity) AS `quantity` FROM `consignments` INNER JOIN orders on orders.id = consignments.order_id WHERE consignments.ngo_id = '$ngo_id' && orders.isDelivered != 'YES' GROUP BY consignments.item";
-	$results = mysqli_query($connection,$sql_query) or die ("Error : " . mysqli_error());
-	$items = array("Clothes(S)",
-		"Clothes(L)" => 0,
-		"Utensils" => 0,
-		"Stationeries" => 0,
-		"Blankets" => 0
-	 );
-	while ($row = mysqli_fetch_array($results,MYSQLI_ASSOC)) 
+	if(! isset($_POST["ngo_id"]))
 	{
-		$item = $row['item'];
-		$qty = $row['quantity'];
-		$items[$item] = $qty;
+		header('Location: ngodetails.php');
 	}
-	$s_clothes += $items['Clothes(S)'];
-	$l_clothes += $items['Clothes(L)'];
-	$utensils += $items['Utensils'];
-	$stationeries += $items['Stationeries'];
-	$blankets += $items['Blankets'];
-	mysqli_close($connection);
+	$ngo_id = $_POST["ngo_id"];
 ?>
 
 
@@ -55,7 +31,7 @@
 		<nav class="navbar navbar-default navbar-inverse">
 			<div class="container">
 				<div class="navbar-header">
-					<a href="#" class="navbar-brand">SpreadTheSmile</a>
+					<a href="index.html" class="navbar-brand">SpreadTheSmile</a>
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 				        <span class="sr-only">Toggle navigation</span>
 				        <span class="icon-bar"></span>
@@ -65,7 +41,8 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="#">Home</a></li>
+						<li><a href="ngodetails.php">Home</a></li>
+						<li><a href="#">Deliveries</a></li>
 						<li><a href="#">About Us</a></li>
 						<li><a href="#">Contact Us</a></li>
 					</ul>
@@ -80,13 +57,83 @@
 			</div>
 		</nav>
 		<div class="container-fluid">
-			<div id="ngo_request">
-				<div id="current_request">
-					<h2>Warehouse</h2>
+			<div id="ngo_details">
+				<?php
+					$sql_query = "SELECT consignments.item, SUM(consignments.quantity) AS `quantity` FROM `consignments` INNER JOIN orders on orders.id = consignments.order_id WHERE consignments.ngo_id = 1 && orders.isDelivered = 'YES' GROUP BY consignments.item";
+					$results = mysqli_query($connection,$sql_query) or die ("Error : " . mysqli_error());
+					$items = array("Clothes(S)" => 0,
+						"Clothes(L)" => 0,
+						"Utensils" => 0,
+						"Stationeries" => 0,
+						"Blankets" => 0,
+						"Others" => 0
+					 );
+					while ($row = mysqli_fetch_array($results,MYSQLI_ASSOC)) 
+					{
+						$item = $row['item'];
+						$qty = $row['quantity'];
+						$items[$item] = $qty;
+					}
+					$ngo = "<div class='ngo_status'><h3>";
+					$ngo_name = "Warehouse";
+					$ws_clothes = $items['Clothes(S)'];
+					$wl_clothes = $items['Clothes(L)'];
+					$wutensils = $items['Utensils'];
+					$wstationeries = $items['Stationeries'];
+					$wblankets = $items['Blankets'];
+					$wothers = $items['Others'];
+					$ngo .= $ngo_name . "</h3><table><thead><th>Items</th><th>Qty.</th></thead><tbody><tr><td>Clothes(S)</td><td>" . $ws_clothes . "</td></tr>";
+					$ngo .= "<tr><td>Clothes(L)</td><td>" . $wl_clothes . "</td></tr>";
+					$ngo .= "<tr><td>utensils</td><td>" . $wutensils . "</td></tr>";
+					$ngo .= "<tr><td>Stationeries</td><td>" . $wstationeries . "</td></tr>";
+					$ngo .= "<tr><td>Blankets</td><td>" . $wblankets . "</td></tr>";
+					$ngo .= "</tbody></table></div>";
+					echo($ngo);
+
+					$sql_query = "SELECT `ngo_id`, `ngo_name`, `s_clothes`, `l_clothes`, `utensils`, `stationeries`, `blankets`, DATE_FORMAT(`req_date`,'%b %d %Y') AS `req_date` FROM `requests` WHERE  `ngo_id` = '$ngo_id'";
+					$results = mysqli_query($connection,$sql_query) or die ("Error : " . mysqli_error());
+					$row = mysqli_fetch_array($results,MYSQLI_ASSOC);
+					$ngo_name = $row['ngo_name'];
+					$req_date = $row['req_date'];
+					$s_clothes = $row['s_clothes'];
+					$l_clothes = $row['l_clothes'];
+					$utensils = $row['utensils'];
+					$stationeries = $row['stationeries'];
+					$blankets = $row['blankets'];
+					$sql_query = "SELECT consignments.item, SUM(consignments.quantity) AS `quantity` FROM `consignments` INNER JOIN orders on orders.id = consignments.order_id WHERE consignments.ngo_id = '$ngo_id' && orders.isDelivered != 'YES' GROUP BY consignments.item";
+					$results = mysqli_query($connection,$sql_query) or die ("Error : " . mysqli_error());
+					$items = array("Clothes(S)",
+						"Clothes(L)" => 0,
+						"Utensils" => 0,
+						"Stationeries" => 0,
+						"Blankets" => 0
+					 );
+					while ($row = mysqli_fetch_array($results,MYSQLI_ASSOC)) 
+					{
+						$item = $row['item'];
+						$qty = $row['quantity'];
+						$items[$item] = $qty;
+					}
+					$s_clothes -= $items['Clothes(S)'];
+					$l_clothes -= $items['Clothes(L)'];
+					$utensils -= $items['Utensils'];
+					$stationeries -= $items['Stationeries'];
+					$blankets -= $items['Blankets'];
+					$s_clothes = max(0, $s_clothes);
+					$l_clothes = max(0, $l_clothes);
+					$utensils = max(0, $utensils);
+					$stationeries = max(0, $stationeries);
+					$blankets = max(0, $blankets);
+					
+					mysqli_close($connection);
+				?>
+				<div class ="ngo_status">
+					<h3><?php echo($ngo_name) ?></h3>
+					<h5>Request Date: <?php echo($req_date) ?></h5>
 					<table>
 						<thead>
 							<th>Items</th>
-							<th>Quantity</th>
+							<th>Qty.</th>
 						</thead>
 						<tbody>
 							<tr>
@@ -112,20 +159,20 @@
 						</tbody>
 					</table>
 				</div>
-				<div id="update_request" >
-					<h2>Send</h2>
-					<form action="assets/update_request.php" method="POST">
+				<div class="ngo_status" id="send_items">
+					<h3>Send Items</h3>
+					<form action="assets/send_from_warehouse.php" method="POST" onsubmit="return validateSentItems()">
 						<label for="s_clothes">Clothes (S):</label>
-						<input type="number" name="s_clothes" min="0" max="1000" value="0">
+						<input type="number" name="s_clothes" min="0" max="<?php echo(min($s_clothes, $ws_clothes))?>" value="0" size="5">
 						<label for="l_clothes">Clothes (L):</label>
-						<input type="number" name="l_clothes" min="0" max="1000" value="0">
+						<input type="number" name="l_clothes" min="0" max="<?php echo(min($l_clothes,$wl_clothes))?>" value="0" size="5">
 						<label for="utensils">Utensils:</label>
-						<input type="number" name="utensils" min="0" max="1000" value="0">
+						<input type="number" name="utensils" min="0" max="<?php echo(min($utensils,$wutensils))?>" value="0" size="5">
 						<label for="stationeries">Stationeries:</label>
-						<input type="number" name="stationeries" min="0" max="1000" value="0">
+						<input type="number" name="stationeries" min="0" max="<?php echo(min($stationeries,$wstationeries))?>" value="0" size="5">
 						<label for="blankets">Blankets:</label>
-						<input type="number" name="blankets" min="0" max="1000" value="0">
-						<button type="submit">Update</button>
+						<input type="number" name="blankets" min="0" max="<?php echo(min($blankets,$wblankets))?>" value="0" size="5">
+						<button type="submit">Send</button>
 					</form>
 				</div>
 			</div>
@@ -141,5 +188,6 @@
 	            </p>
 	        </div>
 	    </footer>
+	    <script type="text/javascript" src="script.js"></script>
 	</body>
 </html>

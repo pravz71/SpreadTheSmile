@@ -17,6 +17,9 @@
 		$row = mysqli_fetch_array($results,MYSQLI_ASSOC);
 		$_SESSION["username"] = $username;
 		$_SESSION["role"] = $row["role"];
+		
+		// Path 
+
 		if($_SESSION["role"] === "contributor"){
 			$query = "SELECT * FROM `contributors` WHERE `username` = '$username'";
 			$res = mysqli_query($connection,$query) or die ("Error : " . mysqli_error());
@@ -24,20 +27,26 @@
 			$_SESSION["id"] = $data["id"];
 			header('Location: ../cart.php?login_success = 1');
 		}	
-		elseif($_SESSION["role"] === "volunteer"){
+		elseif($_SESSION["role"] === "volunteer")
+		{
 			$query = "SELECT * FROM `volunteers` WHERE `username` = '$username'";
 			$res = mysqli_query($connection,$query) or die ("Error : " . mysqli_error());
 			$data = mysqli_fetch_array($res,MYSQLI_ASSOC);
 			$_SESSION["id"] = $data["id"];
 			header('Location: ../unassignedvolunteer.php?login_success = 1');
 		}	
-		else
+		elseif($_SESSION["role"] === "ngo")
 		{
 			$query = "SELECT * FROM `ngos` WHERE `username` = '$username'";
 			$res = mysqli_query($connection,$query) or die ("Error : " . mysqli_error());
 			$data = mysqli_fetch_array($res,MYSQLI_ASSOC);
 			$_SESSION["id"] = $data["id"];
 			header('Location: ../ngorequest.php?login_success = 1');
+		}
+		else
+		{
+			$_SESSION["id"] = 0;
+			header('Location: ../ngodetails.php?login_success = 1');
 		}
 	} 
 	else 

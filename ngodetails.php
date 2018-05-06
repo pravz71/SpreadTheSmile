@@ -1,5 +1,5 @@
-<?php  
-	session_start();
+<?php
+	include_once("assets/admin_manager.php");
 	include_once("assets/db_connect.php");
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
 		<nav class="navbar navbar-default navbar-inverse">
 			<div class="container">
 				<div class="navbar-header">
-					<a href="#" class="navbar-brand">SpreadTheSmile</a>
+					<a href="index.html" class="navbar-brand">SpreadTheSmile</a>
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 				        <span class="sr-only">Toggle navigation</span>
 				        <span class="icon-bar"></span>
@@ -34,7 +34,8 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="#">Home</a></li>
+						<li class="nav-item active"><a href="ngodetails.php">Home</a></li>
+						<li><a href="#">Deliveries</a></li>
 						<li><a href="#">About Us</a></li>
 						<li><a href="#">Contact Us</a></li>
 					</ul>
@@ -53,7 +54,7 @@
 			<?php
 				$sql_query = "SELECT consignments.item, SUM(consignments.quantity) AS `quantity` FROM `consignments` INNER JOIN orders on orders.id = consignments.order_id WHERE consignments.ngo_id = 1 && orders.isDelivered = 'YES' GROUP BY consignments.item";
 				$results = mysqli_query($connection,$sql_query) or die ("Error : " . mysqli_error());
-				$items = array("Clothes(S)",
+				$items = array("Clothes(S)" => 0,
 					"Clothes(L)" => 0,
 					"Utensils" => 0,
 					"Stationeries" => 0,
@@ -82,19 +83,21 @@
 				$ngo .= "<tr><td>Others</td><td>" . $others . "</td></tr>";
 				$ngo .= "</tbody></table></div>";
 				echo($ngo);
-				$sql_query = "SELECT * FROM `requests` WHERE `ngo_id` != 1";
+
+				$sql_query = "SELECT `ngo_id`, `ngo_name`, `s_clothes`, `l_clothes`, `utensils`, `stationeries`, `blankets`, DATE_FORMAT(`req_date`,'%b %d %Y') AS `req_date` FROM `requests` WHERE `ngo_id` != 1";
 				$results = mysqli_query($connection,$sql_query) or die ("Error : " . mysqli_error());
 				while ($row = mysqli_fetch_array($results,MYSQLI_ASSOC)) 
 				{
 					$ngo = "<div class='ngo_status'><h3>";
 					$ngo_id = $row['ngo_id'];
+					$req_date = $row['req_date'];
 					$ngo_name = $row['ngo_name'];
 					$s_clothes = $row['s_clothes'];
 					$l_clothes = $row['l_clothes'];
 					$utensils = $row['utensils'];
 					$stationeries = $row['stationeries'];
 					$blankets = $row['blankets'];
-					$ngo .= $ngo_name . "</h3><table><thead><th>Items</th><th>Qty.</th></thead><tbody><tr><td>Clothes(S)</td><td>" . $s_clothes . "</td></tr>";
+					$ngo .= $ngo_name . "</h3><h5>Request Date: " . $req_date . "</h5><table><thead><th>Items</th><th>Qty.</th></thead><tbody><tr><td>Clothes(S)</td><td>" . $s_clothes . "</td></tr>";
 					$ngo .= "<tr><td>Clothes(L)</td><td>" . $l_clothes . "</td></tr>";
 					$ngo .= "<tr><td>Utensils</td><td>" . $utensils . "</td></tr>";
 					$ngo .= "<tr><td>Stationeries</td><td>" . $stationeries . "</td></tr>";

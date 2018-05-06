@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+	include_once("assets/contributor_manager.php");
 	include_once("assets/db_connect.php");
 	$items = array('s_clothes' => "" ,
 					'l_clothes' => "",
@@ -12,7 +12,7 @@
 	{ 
 		$qty = 0;
 		$temp = "<option value='-1' selected='true' disabled='disabled'>Select Organization</option>";
-		$sql_query = "SELECT * FROM `requests` WHERE `$keys[$i]` > '$qty AND `$ngo_id` != 1";
+		$sql_query = "SELECT * FROM `requests` WHERE `$keys[$i]` > '$qty' AND `ngo_id` != 1";
 		$results = mysqli_query($connection,$sql_query) or die ("Error: " . mysqli_error());
 		if (mysqli_num_rows($results) > 0) {
 			while($row = mysqli_fetch_array($results,MYSQLI_ASSOC))
@@ -39,7 +39,7 @@
 		<nav class="navbar navbar-default navbar-inverse">
 			<div class="container">
 				<div class="navbar-header">
-					<a href="#" class="navbar-brand">SpreadTheSmile</a>
+					<a href="index.html" class="navbar-brand">SpreadTheSmile</a>
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 				        <span class="sr-only">Toggle navigation</span>
 				        <span class="icon-bar"></span>
@@ -49,12 +49,17 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="#">Home</a></li>
+						<li class="nav-item active"><a href="cart.php">Home</a></li>
+						<li><a href="donationhistory.php">Donation History</a></li>
 						<li><a href="#">About Us</a></li>
 						<li><a href="#">Contact Us</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li>Sign Out</li>
+						<li>
+							<form action="assets/sign_out.php" method="POST" class="navbar-form navbar-right">
+								<button type="submit" class="btn btn-danger btn-sm">Sign Out</button>
+							</form>
+						</li>
 					</ul>
 				</div>
 			</div>

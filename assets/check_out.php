@@ -20,7 +20,8 @@
 		$sql_query = "INSERT INTO `consignments`(`id`, `item`, `quantity`, `ngo_id`, `order_id`) VALUES (NULL,'$item','$quantity','$ngo_id','$order_id')";
 		$results = mysqli_query($connection,$sql_query) or die ("Error: " . mysqli_error());
 	}
-
+	$_SESSION['cart'] = -1;
+	
 	//updating address in database
 
 	if(isset($_POST['full_name']) && isset($_POST['mobile']) && isset($_POST['pincode']) && isset($_POST['flat_number']) && isset($_POST['street_address']) && isset($_POST['p_date']) && isset($_POST['p_time']))

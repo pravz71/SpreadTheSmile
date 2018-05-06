@@ -1,9 +1,11 @@
-<?php 
-	session_start();
+<?php
+	include_once("assets/contributor_manager.php");
+	if (! isset($_SESSION["order_id"]) || $_SESSION['order_id'] == -1) {
+		header('Location: cart.php');
+	}
 	$order_id = $_SESSION["order_id"];
+	$_SESSION["order_id"] = -1;
 ?>
-
-
 <html>
 	<head>
 		<title>Spread The Smile</title>
@@ -18,7 +20,7 @@
 		<nav class="navbar navbar-default navbar-inverse">
 			<div class="container">
 				<div class="navbar-header">
-					<a href="#" class="navbar-brand">SpreadTheSmile</a>
+					<a href="index.html" class="navbar-brand">SpreadTheSmile</a>
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 				        <span class="sr-only">Toggle navigation</span>
 				        <span class="icon-bar"></span>
@@ -28,7 +30,8 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="#">Home</a></li>
+						<li><a href="cart.php">Home</a></li>
+						<li><a href="donationhistory.php">Donation History</a></li>
 						<li><a href="#">About Us</a></li>
 						<li><a href="#">Contact Us</a></li>
 					</ul>
