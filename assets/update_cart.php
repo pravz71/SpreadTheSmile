@@ -29,5 +29,5 @@
 		}
 	}
 	$_SESSION['cart'] = $consignments;
-	header('Location: ../checkout.html');
+	header('Location: ../checkout.php');
 ?>

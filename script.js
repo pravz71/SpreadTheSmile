@@ -144,4 +144,30 @@ function dateExtractor(dt)
 	dt = year + '-' + month + '-' + day;
 	return dt;
 }
-                                                                                                                                                                                                                                                                                                                                                               
+// Admin Send from Warehouse Page
+
+function validateSentItems()
+{
+	var item_count = false; //To check if atleast one item is selected by user
+	$("#send_items input").each(function() {
+  		if(Number($(this).val()) > 0)
+  		{
+  			item_count = true;
+  		}
+  	});
+	if(!item_count){
+		alert("Please send atleast one item.");
+	}
+	return item_count;
+} 
+
+$("#send_items input[type = 'date']").click(function () {
+	var minDate = new Date();
+	minDate.setDate(minDate.getDate() + 1);
+	var maxDate = new Date();
+	maxDate.setDate(maxDate.getDate() + 30);
+	minDate = dateExtractor(minDate);
+	maxDate = dateExtractor(maxDate);
+	$(this).attr('min', minDate);
+	$(this).attr('max', maxDate);
+});                                                                                                                                                                                                                                                                                                                                                           // 
