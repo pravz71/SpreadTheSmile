@@ -42,7 +42,11 @@
 						<li><a href="#">Contact Us</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li>Sign Out</li>
+						<li>
+							<form action="assets/sign_out.php" method="POST" class="navbar-form navbar-right">
+								<button type="submit" class="btn btn-danger btn-sm">Sign Out</button>
+							</form>
+						</li>
 					</ul>
 				</div>
 			</div>

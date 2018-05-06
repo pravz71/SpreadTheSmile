@@ -159,4 +159,15 @@ function validateSentItems()
 		alert("Please send atleast one item.");
 	}
 	return item_count;
-}                                                                                                                                                                                                                                                                                                                                                            // 
+} 
+
+$("#send_items input[type = 'date']").click(function () {
+	var minDate = new Date();
+	minDate.setDate(minDate.getDate() + 1);
+	var maxDate = new Date();
+	maxDate.setDate(maxDate.getDate() + 30);
+	minDate = dateExtractor(minDate);
+	maxDate = dateExtractor(maxDate);
+	$(this).attr('min', minDate);
+	$(this).attr('max', maxDate);
+});                                                                                                                                                                                                                                                                                                                                                           // 

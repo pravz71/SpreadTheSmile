@@ -39,6 +39,7 @@ TODO
 37. While sending from warehouse max will be whichever is small ngo request or warehouse contents.
 38. copy sendfromwh code to ngodetails page so that both are equal and also to carts page
 39. check javascript for ngo details
+40. add is delivered,  add if volunteer is assigned
 git status
 git add . 
 git  commit -m "msg"

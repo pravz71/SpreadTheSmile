@@ -47,7 +47,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="nav-item active"><a href="ngorequest.php">Home</a></li>
-						<li><a href="upcomingdeliveries.php"></a></li>
+						<li><a href="upcomingdeliveries.php">Upcoming Deliveries</a></li>
 						<li><a href="#">About Us</a></li>
 						<li><a href="#">Contact Us</a></li>
 					</ul>

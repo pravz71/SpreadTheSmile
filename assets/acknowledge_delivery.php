@@ -5,7 +5,7 @@
 	if (isset($_POST['delivered'])) 
 	{
 		$order_id = $_POST['order_id'];
-		$sql_query = "SELECT `isDelivered` FROM `orders` WHERE `id` = '$order_id' AND `isDelivered` != 'YES'; ";
+		$sql_query = "SELECT `isDelivered` FROM `orders` WHERE `id` = '$order_id' AND `isDelivered` != 'YES'";
 		$results = mysqli_query($connection, $sql_query) or die ("Error: " . mysqli_error());
 		if (mysqli_num_rows($results) > 0)
 		{
@@ -29,28 +29,31 @@
 					$user_quantity = $row['quantity'];
 					$ngo_id = $row['ngo_id'];
 					$db_item = $keys[$i];
-					$sql_query = "SELECT `$db_item` FROM `requests` WHERE `ngo_id` = '$ngo_id'";
-					$res = mysqli_query($connection, $sql_query) or die ("Error: " . mysqli_error());
-					$data = mysqli_fetch_array($res,MYSQLI_ASSOC);
-					$db_quantity = $data[$db_item];
-					if ($ngo_id == 1) 
+					if($user_quantity != "Others")
 					{
-						$db_quantity += $user_quantity; 	
-					}
-					else
-					{
-						if ($db_quantity > $user_quantity) 
+						$sql_query = "SELECT `$db_item` FROM `requests` WHERE `ngo_id` = '$ngo_id'";
+						$res = mysqli_query($connection, $sql_query) or die ("Error: " . mysqli_error());
+						$data = mysqli_fetch_array($res,MYSQLI_ASSOC);
+						$db_quantity = $data[$db_item];
+						if ($ngo_id == 1) 
 						{
-							$db_quantity -= $user_quantity;
-						} 
-						else 
-						{
-							$db_quantity = 0;
+							$db_quantity += $user_quantity; 	
 						}
-						
+						else
+						{
+							if ($db_quantity > $user_quantity) 
+							{
+								$db_quantity -= $user_quantity;
+							} 
+							else 
+							{
+								$db_quantity = 0;
+							}
+							
+						}
+						$sql_query = "UPDATE `requests` SET `$db_item`= '$db_quantity' WHERE `ngo_id` = '$ngo_id'";
+						$res = mysqli_query($connection, $sql_query) or die ("Error: " . mysqli_error());
 					}
-					$sql_query = "UPDATE `requests` SET `$db_item`= '$db_quantity' WHERE `ngo_id` = '$ngo_id'";
-					$res = mysqli_query($connection, $sql_query) or die ("Error: " . mysqli_error());
 				}	
 			}
 			$valid = true;

@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 	include_once("assets/contributor_manager.php");
 	include_once("assets/db_connect.php");
 	$items = array('s_clothes' => "" ,
