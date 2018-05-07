@@ -26,7 +26,7 @@
 		<nav class="navbar navbar-default navbar-inverse">
 			<div class="container">
 				<div class="navbar-header">
-					<a href="#" class="navbar-brand">SpreadTheSmile</a>
+					<a href="index.html" class="navbar-brand">SpreadTheSmile</a>
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 				        <span class="sr-only">Toggle navigation</span>
 				        <span class="icon-bar"></span>
@@ -42,7 +42,11 @@
 						<li><a href="#">Contact Us</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li>Sign Out</li>
+						<li>
+							<form action="assets/sign_out.php" method="POST" class="navbar-form navbar-right">
+								<button type="submit" class="btn btn-danger btn-sm">Sign Out</button>
+							</form>
+						</li>
 					</ul>
 				</div>
 			</div>

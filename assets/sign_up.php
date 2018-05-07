@@ -67,14 +67,14 @@
 		{
 			echo "<script>
 					alert('Account Created!!!');
-					window.location = '../login.html';
+					window.location = '../login.php';
 				 </script>";
 		}
 		else
 		{
 			echo "<script>
 					alert('Something went wrong. Please try again.');
-					window.location = '../signup.html';
+					window.location = '../signup.php';
 				 </script>";
 		}
 	} 
@@ -82,7 +82,7 @@
 	{
 		echo "<script>
 				alert('Email-Id already exists!!!');
-				window.location = '../signup.html';
+				window.location = '../signup.php';
 			 </script>";
 	}	
 ?>

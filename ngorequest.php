@@ -47,7 +47,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="nav-item active"><a href="ngorequest.php">Home</a></li>
-						<li><a href="upcomingdeliveries.php"></a></li>
+						<li><a href="upcomingdeliveries.php">Upcoming Deliveries</a></li>
 						<li><a href="#">About Us</a></li>
 						<li><a href="#">Contact Us</a></li>
 					</ul>
@@ -96,7 +96,7 @@
 				</div>
 				<div id="update_request" >
 					<h2>Update Request</h2>
-					<form action="assets/update_request.php" method="POST">
+					<form action="assets/update_request.php" onsubmit="return validateRequestItems()" method="POST" >
 						<label for="s_clothes">Clothes (S):</label>
 						<input type="number" name="s_clothes" min="0" max="1000" value="0">
 						<label for="l_clothes">Clothes (L):</label>
@@ -123,5 +123,6 @@
 	            </p>
 	        </div>
 	    </footer>
+	    <script type="text/javascript" src="script.js"></script>
 	</body>
 </html>

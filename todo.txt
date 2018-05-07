@@ -1,16 +1,16 @@
 TODO 
-1. prevent sql injection
+1. prevent sql injection--->NOT DONE
 2. Wrong Phone No updating in database
-3. Create security-question table
+3. Create security-question table--->NOT DONE
 4. Restrict Pickup Date
 5. Remove Sign up Sign in replace with log out
 6. For About Us Check screenshot and https://pivotcomm.com/
 7. Admin warehouse page- show items collected
 8. Fetch all the ngos requiring an item and then assign it to html
 9. Admin Dipatch page for warehouse items
-10. After delivery volunteer ticks then ngo ticks then admin ticks to 	  update ngo requests(subtract)
+10. After delivery volunteer ticks then ngo ticks OR admin ticks tO update ngo requests(subtract)
 11. Role based routing ROUTE MANAGER.PHP
-12. Link Contributor home ,about us , contact us 
+12. Link about us , contact us --->NOT DONE
 13. Create a Warehouse Section in Admin Area
 14. Get Started Button
 15. Link to delivery page
@@ -21,16 +21,15 @@ TODO
 20. Insert first data as Warehouse with id = 1 in ngos table;
 21. $orders which contains all the consignments 
 22. add quantity in ngo option in cart
-23. Change district in ngo table to pincode
+23. Change district in ngo table to pincode--->NOT DONE
 24. Remaining item must go to Warehouse    --->NOT DONE
 25. Acknowledge delivery admin or ngo then delete the consignment generate date when Volunteer picks consignment
-26. 
+26. CREATE AND LINK LOGIN.PHP--->NOT DONE
 27. Show item and NGO in contributors page
 28. In the admin page add card which shows needs and  date of request, on clicking it go to  the  next page similar to ngo request page
 29. mysql date converter
 30. sHOW ORDER DATE IN cONTRIBUTOR
-31. ADD NAVBAR BRANDS IN EVERY PAGE ACCORDING TO LINK --->NOT DONE --->NOT DONE
-
+31. ADD NAVBAR BRANDS IN EVERY PAGE ACCORDING TO LINK  --->NOT DONE
 32. add seesion check in login and login.php --->NOT DONE
 33. Add session id = 0 for admin during login --->NOT DONE
 34. SET session cart = -1 once the order is updated as well as during login or unset --->NOT DONE
@@ -39,6 +38,17 @@ TODO
 37. While sending from warehouse max will be whichever is small ngo request or warehouse contents.
 38. copy sendfromwh code to ngodetails page so that both are equal and also to carts page
 39. check javascript for ngo details
+40. add is delivered,  add if volunteer is assigned--->NOT DONE
+41. Apply linear-gradient--->NOT DONE
+42. give push a height of 150px
+43. Restrict update request
+Favourite Animal
+cartoon character
+Nickname
+Birth City
+
+
+
 git status
 git add . 
 git  commit -m "msg"

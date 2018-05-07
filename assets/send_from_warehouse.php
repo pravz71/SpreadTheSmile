@@ -33,17 +33,20 @@
 		$sql_query = "INSERT INTO `orders`(`id`, `contributor_id`, `volunteer_id`, `order_date`, `isPicked`, `isDelivered`) VALUES (NULL,0,NULL,'$cdate','$val','$val')";
 		$results = mysqli_query($connection,$sql_query) or die ("Error: " . mysqli_error());
 		$order_id = mysqli_insert_id($connection);
+
 		$keys = array_keys($items);
 		for($i = 0; $i < count($keys); $i++)
 		{
-			if(isset($_POST['s_clothes'] && $_POST['s_clothes'] > 0 && whitems[$keys[$i]] > 0)
+
+			if(isset($_POST[$keys[$i]]) && ($_POST[$keys[$i]] > 0 ) && ($whitems[$keys[$i]] > 0))
 			{
-				$quantity = min($_POST[$keys[$i]], $whitems[$keys[i]]);
+				echo "hi<br>";
+				$quantity = min($_POST[$keys[$i]], $whitems[$keys[$i]]);
 				$item_name = $items[$keys[$i]];
 				$item = $keys[$i];
 				$sql_query = "INSERT INTO `consignments`(`id`, `item`, `quantity`, `ngo_id`, `order_id`) VALUES (NULL,'$item_name','$quantity','$ngo_id','$order_id')";
 				$results = mysqli_query($connection,$sql_query) or die ("Error: " . mysqli_error());
-				$quantity = $whitems[$keys[i]] - $quantity; 
+				$quantity = $whitems[$keys[$i]] - $quantity; 
 				$sql_query = "UPDATE `requests` SET `$item`= '$quantity' WHERE `ngo_id` = 1";
 				$results = mysqli_query($connection,$sql_query) or die ("Error: " . mysqli_error());
 			}
@@ -56,7 +59,7 @@
 			$mobile = "9876543210";
 			$pincode = "700102";
 			$flat_number = "D-31, Vaishno Devi Abasan";
-			$street = "Samarpally,";
+			$street = "Samarpally";
 			$p_date = $_POST['p_date'];
 			$temp_time =($_POST['p_time']);
 			if($temp_time == 1)

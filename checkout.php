@@ -1,5 +1,4 @@
-<?php  
-	session_start();
+<?php
 	include_once("assets/contributor_manager.php");
 	if (! isset($_SESSION['cart']) || $_SESSION['cart'] == -1) {
 		header('Location: cart.php');
