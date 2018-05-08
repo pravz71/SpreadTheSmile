@@ -120,6 +120,7 @@ function validateCart()
 
 //Checkout Page
 	//Restrict past dates
+
 $("#checkout input[type = 'date']").click(function () {
 	var minDate = new Date();
 	minDate.setDate(minDate.getDate() + 2);
@@ -149,7 +150,7 @@ function dateExtractor(dt)
 function validateSentItems()
 {
 	var item_count = false; //To check if atleast one item is selected by user
-	$("#send_items input").each(function() {
+	$("#send_items input[type=number]").each(function() {
   		if(Number($(this).val()) > 0)
   		{
   			item_count = true;
@@ -160,7 +161,20 @@ function validateSentItems()
 	}
 	return item_count;
 } 
-
+function validateRequestItems()
+{
+	var item_count = false; //To check if atleast one item is selected by user
+	$("#update_request input[type=number]").each(function() {
+  		if(Number($(this).val()) > 0)
+  		{
+  			item_count = true;
+  		}
+  	});
+	if(!item_count){
+		alert("Please send atleast one item.");
+	}
+	return item_count;
+} 
 $("#send_items input[type = 'date']").click(function () {
 	var minDate = new Date();
 	minDate.setDate(minDate.getDate() + 1);

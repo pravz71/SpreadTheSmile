@@ -152,7 +152,7 @@
 				</div>
 				<div class="ngo_status" id="send_items">
 					<h2>Send Items</h2>
-					<form action="assets/send_from_warehouse.php" method="POST" onsubmit="return validateSentItems()">
+					<form action="assets/send_from_warehouse.php" onsubmit="return validateSentItems()" method="POST">
 						<label for="s_clothes">Clothes (S):</label>
 						<input type="number" name="s_clothes" min="0" max="<?php echo(min($s_clothes, $ws_clothes))?>" value="0" size="5">
 						<label for="l_clothes">Clothes (L):</label>

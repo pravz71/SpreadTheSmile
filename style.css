@@ -8,7 +8,7 @@ body{
 	background-repeat: repeat;
 }
 .error{
-	border: 2px solid red;
+	border: 1px solid red;
 }
 #footer_data{
 	margin-top: 5px;
@@ -69,7 +69,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 #push{
-	height: 0px;
+	height: 50px;
+	padding-bottom: 100px; 
 }
 @media (max-width: 768px){
     #push { 
@@ -84,17 +85,17 @@ input[type=number]::-webkit-outer-spin-button {
 	text-align: center;
 	padding: 2% 3%;
 	padding-top: 0.2%;
-	background-color: rgba(0, 0, 0, 0.5);
+	background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(145, 145, 145, 0.6),rgba(5, 5, 5, 0.6),rgba(25, 25, 25, 0.6));
 	color: white;
 	box-shadow: 0px 1px 0px 1px rgba(55, 55, 55,0.5),
-				0px 0px 5px 5px rgba(255, 255, 255,0.4);
+				0px 0px 8px 8px rgba(255, 255, 255,0.4);
 }
 #title{
 	font-weight: bold;
 	font-size: 5em;
-	text-shadow: 0px 5px 4px rgba(0,0,0,0.6),
-				 0px 10px 15px rgba(255, 255, 255, 0.3),
-				 0px 20px 25px rgba(0, 0, 0, 0.2);
+	text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.3),
+				 0px 10px 15px rgba(55, 55, 55, 0.4),
+				 0px 20px 25px rgba(255, 255, 255, 0.3);
 
 }
 #content .fa-smile-o{
@@ -102,6 +103,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .quote{
 	font-family: 'Kaushan Script', cursive;
+	color: black;
 }
 #content hr{
 	border-top: 2px solid #f8f8f8;
@@ -118,7 +120,7 @@ input[type=number]::-webkit-outer-spin-button {
 	letter-spacing: 2px;
 }
 #content #intro{
-	font-size: 17px;
+	font-size: 18px;
 }
 
 
@@ -129,7 +131,7 @@ input[type=number]::-webkit-outer-spin-button {
 	max-width: 300px;
 	margin: 0 auto;
 	padding: 20px;
-	background-color: rgba(0,0,0,0.8);
+	background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(65, 65, 65, 0.8));
 	border-radius: 12px;
 	box-sizing: border-box;
 }
@@ -143,7 +145,7 @@ input[type=number]::-webkit-outer-spin-button {
 	max-width: 280px;
 	margin: 0 auto;
 	padding: 20px;
-	background-color: rgba(45, 45, 60, 0.6);
+	background: linear-gradient(rgba(85, 85, 85, 0.6),rgba(0, 0, 0, 0.8));
 	color: #ffff33;
 	display: flex;
 	vertical-align: center;
@@ -274,10 +276,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 #sign_up_options h1{ 
 	color: black;
-	font-size: 50px;
+	font-size: 40px;
 	letter-spacing: 2px;
 	margin: 0 9%;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	font-weight: bold;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	transition: all 0.6s linear;
@@ -285,6 +287,7 @@ input[type=number]::-webkit-outer-spin-button {
 	box-sizing: border-box;
 	text-decoration: underline;
 	text-underline-position: under;
+	text-transform: uppercase;
 }
 #sign_up_options input {
     visibility:hidden;
@@ -404,16 +407,9 @@ input[type=number]::-webkit-outer-spin-button {
 	display: inline-block;
 	text-decoration: none; 
 }
-#contributor_form a:hover{
-	color: green;
-}
-#volunteer_form a:hover{
+.sign_up__form a:hover{
 	color: red;
 }
-#ngo_form a:hover{
-	color: blue;
-}
-
 @media (max-width: 1000px){
     #sign_up_options label {
     	font-size: 15px;
@@ -799,18 +795,17 @@ input[type=number]::-webkit-outer-spin-button {
 	margin: 5% auto;
 	box-sizing: border-box;	
 	padding: 28px 20px;
-	background-color: rgba(255, 255, 255, 0.7);
+	background: rgba(55, 55, 55, 0.7);
 }
 #unassigned_tasks .tasks{
 	width: 45%;
+	background: rgba(255, 255, 255, 1.0);
 	min-width: 280px;
 	color: #0056b3;
 	margin: 10px calc(10% / 4);
 	box-sizing: border-box;
 	padding: 15px;
 	float: left;
-	border-radius: 5px;
-	border: 1px solid #007bff;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 600;
 	height: 180px;
@@ -855,7 +850,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .empty_task{
 	margin: 12% auto;
-	width: 600px;
+	width: 100%;
+	max-width: 600px;
 	border: 1px solid red;
 	color: red;
 	border-radius: 5px;

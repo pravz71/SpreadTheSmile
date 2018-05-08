@@ -54,7 +54,7 @@
 		mysqli_close($connection); 
 		echo "<script>
 				alert('Email or password is incorrect!');
-				window.location = '../login.html';
+				window.location = '../login.php';
 			 </script>";
 	}	
 	mysqli_close($connection); 

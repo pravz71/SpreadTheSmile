@@ -96,7 +96,7 @@
 				</div>
 				<div id="update_request" >
 					<h2>Update Request</h2>
-					<form action="assets/update_request.php" method="POST">
+					<form action="assets/update_request.php" onsubmit="return validateRequestItems()" method="POST" >
 						<label for="s_clothes">Clothes (S):</label>
 						<input type="number" name="s_clothes" min="0" max="1000" value="0">
 						<label for="l_clothes">Clothes (L):</label>
@@ -123,5 +123,6 @@
 	            </p>
 	        </div>
 	    </footer>
+	    <script type="text/javascript" src="script.js"></script>
 	</body>
 </html>
