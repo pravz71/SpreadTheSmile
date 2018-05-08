@@ -80,10 +80,10 @@
 							<label for="security_question">Security Question</label>
 							<select name="security_question" required="">
 								<option value="-1" selected="true" disabled="disabled">--Select a Question--</option>
-								<option value="1">Question_1</option>
-								<option value="2">Question_2</option>
-								<option value="3">Question_3</option>
-								<option value="4">Question_4</option>
+								<option value="1">Your Favourite Animal</option>
+								<option value="2">Your Favourite cartoon character</option>
+								<option value="3">Your Nickname</option>
+								<option value="4">Your Birth City</option>
 							</select>
 						</div>
 						<div class="input_wrap">
@@ -127,10 +127,10 @@
 							<label for="security_question">Security Question</label>
 							<select name="security_question" required="">
 								<option value="-1" selected="true" disabled="disabled">--Select a Question--</option>
-								<option value="1">Question_1</option>
-								<option value="2">Question_2</option>
-								<option value="3">Question_3</option>
-								<option value="4">Question_4</option>
+								<option value="1">Your Favourite Animal</option>
+								<option value="2">Your Favourite cartoon character</option>
+								<option value="3">Your Nickname</option>
+								<option value="4">Your Birth City</option>
 							</select>
 						</div>
 						<div class="input_wrap">
@@ -182,10 +182,10 @@
 							<label for="security_question">Security Question</label>
 							<select name="security_question" required="">
 								<option value="-1" selected="true" disabled="disabled">--Select a Question--</option>
-								<option value="1">Question_1</option>
-								<option value="2">Question_2</option>
-								<option value="3">Question_3</option>
-								<option value="4">Question_4</option>
+								<option value="1">Your Favourite Animal</option>
+								<option value="2">Your Favourite cartoon character</option>
+								<option value="3">Your Nickname</option>
+								<option value="4">Your Birth City</option>
 							</select>
 						</div>
 						<div class="input_wrap">
