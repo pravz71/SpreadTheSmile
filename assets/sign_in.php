@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include_once("db_connect.php");
+	include_once("alert.php");
 	//user inputs 
 	$username = $_POST["username"];
 	$password = $_POST["password"];
@@ -52,10 +53,7 @@
 	else 
 	{
 		mysqli_close($connection); 
-		echo "<script>
-				alert('Email or password is incorrect!');
-				window.location = '../login.php';
-			 </script>";
+		echo (generateAlert("invalid user"));
 	}	
 	mysqli_close($connection); 
  ?>

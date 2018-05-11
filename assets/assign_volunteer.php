@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	include_once("db_connect.php");
+	include_once("alert.php");
 	$volunteer_id = $_SESSION['id'];
 	if(isset($_POST['order_id']))
 	{
@@ -10,16 +11,10 @@
 	$results = mysqli_query($connection,$sql_query) or die ("Error: " . mysqli_error());
 	if($results)
 	{
-		echo "<script>
-				alert('You have been successfully added to the task!');
-				window.location = '../volunteertasks.php';
-			 </script>";		
+		echo (generateAlert("assign volunteer successful"));		
 	}
 	else
 	{
-		echo "<script>
-				alert('Sorry something went wrong!');
-				window.location = '../unassignedvolunteer.php';
-			 </script>";
+		echo (generateAlert("assign volunteer unsuccessful"));
 	}
 ?>

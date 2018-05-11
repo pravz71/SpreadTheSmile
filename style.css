@@ -215,7 +215,7 @@ input[type=number]::-webkit-outer-spin-button {
 	text-align: right;
 	text-decoration: none; 
 }
-#sign_in a[href = "signup.html"]{
+#sign_in a[href = "signup.php"]{
 	text-align: center; 
 }
 #sign_in a:hover{
@@ -799,9 +799,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 #unassigned_tasks .tasks{
 	width: 45%;
-	background: rgba(255, 255, 255, 1.0);
+	background: #eee;
+	border-radius: 5px;
+	border: 3px solid #34c6d3;
 	min-width: 280px;
-	color: #0056b3;
+	color: #333;
 	margin: 10px calc(10% / 4);
 	box-sizing: border-box;
 	padding: 15px;
@@ -961,4 +963,102 @@ input[type=number]::-webkit-outer-spin-button {
     	width: 300px;
     	margin: 8% auto;
     }
+}
+
+/*Change Password & About Us*/
+
+
+.change-password, .about{
+	padding: 30px;
+	width: 55%;
+	box-sizing: border-box;
+	margin: 8% auto;
+	text-align: center;
+	background-color: rgba(238, 238, 238, 0.9);
+}
+.pass-title{
+	font-size: 29px;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0 0 20px 0;
+}
+.content-title-underline{
+	width: 50px;
+	height: 3px;
+	background-color: #34c6d3; 
+	margin: 0 auto 30px auto;
+}
+.password-reset label{
+	font-size: 18px;
+	letter-spacing: 2px;
+	margin-top: 10px;
+}
+.password-reset input{
+	font-size: 17px;
+	letter-spacing: 2px;
+	padding: 3px 10px;
+	box-sizing: border-box;
+	margin-top: 10px;
+	border: 2px solid rgba(255, 102, 0, 0.5);
+
+}
+.password-reset button{
+	font-size: 18px;
+	letter-spacing: 2px;
+	color: black;
+	margin-top: 10px;
+	text-transform: uppercase;
+	background: rgba(255, 102, 0, 1);
+	border: 2px solid black;
+	border-radius: 2px;
+	padding:2px 10px;
+	box-sizing: border-box;
+	margin-left: 10px 
+}
+.password-reset button:hover{
+	color: rgba(255, 102, 0, 1);
+	background: #fff;
+	border: 2px solid rgba(255, 102, 0, 1);
+}
+.change-password h2{
+	color: black;
+	font-weight: 500;
+	margin: 20px 0px 15px 0px;
+	
+
+}
+.password-error{
+	padding: 10px;
+	margin-top: 50px;
+	box-sizing: border-box;
+	border: 2px solid #34c6d3;
+	border-radius: 5px;
+}
+.password-error h3{
+	color: #e62e00;
+	font-weight: 700;
+}
+.new_pass label{
+	margin-bottom: 2px;
+	margin-top: 0px;
+}
+.new_pass input{
+	padding: 5px;
+	margin-bottom: 15px;
+	margin-top: 0px;
+	width: 250px
+}
+.new_pass button{
+	padding: 5px 15px;
+	margin-left: 0px;
+}
+.about{
+	margin-top: 2%;
+	width: 90%;
+	min-width: 400px;
+}
+.about p{
+	font-size: 17px;
+
 }

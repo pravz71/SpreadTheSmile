@@ -55,7 +55,7 @@
 		<div class="container">
 			<div id="unassigned_tasks" class="row">
 				<?php  
-					$sql_query = "SELECT * FROM `orders` ORDER BY `isDelivered`, `isPicked`";
+					$sql_query = "SELECT * FROM `orders` WHERE `volunteer_id` IS NOT NULL ORDER BY `isDelivered`, `isPicked`";
 					$results  = mysqli_query($connection,$sql_query)  or die ("Error: " . mysqli_error());
 					if(mysqli_num_rows($results) === 0)
 					{
@@ -71,7 +71,7 @@
 						$sql_query = "SELECT `order_id`, `name`, `phone`, `pincode`, `flat`, `street`,`pickup_time`, DATE_FORMAT(DATE_ADD(`pickup_date`, INTERVAL 10 DAY),'%b %d %Y') AS `delivery_date` FROM `pickup` WHERE `order_id` = '$order_id'";
 						$res  = mysqli_query($connection,$sql_query) or die ("Error: " . mysqli_error());
 						$pickup = mysqli_fetch_array($res,MYSQLI_ASSOC);
-						$consignment = "<div class='tasks'><ul><li>Items: <ul>";
+						$consignment = "<div class='tasks'><ul><li>Order Id: " . $order_id ."</li><li>Items: <ul>";
 						$sql_query = "SELECT * FROM `consignments` WHERE `ngo_id` = '$ngo_id' AND `order_id` = '$order_id'";
 						$res  = mysqli_query($connection,$sql_query);
 						while($data = mysqli_fetch_array($res,MYSQLI_ASSOC))
@@ -82,11 +82,14 @@
 							$consignment .= "</li>";
 						}
 						$consignment .= "</ul></li><li>Delivery by : " . $pickup['delivery_date'] . "</li></ul>";
-						if ($isDelivered === 'NO')
+						if (($isDelivered === 'NO' || $isDelivered === 'Y') && $isPicked === 'YES')
 						{
 							$consignment .= "<form action='assets/acknowledge_delivery.php' method='POST'><input type='hidden' name='order_id' value='" . $order_id . "'><button type='submit' name='delivered'>Acknowledge Delivery</button></form></div>";
 						}
-						elseif ($isDelivered === 'YES' || $isDelivered === 'Y') {
+						elseif ($isDelivered === 'YES' ) {
+							$consignment .= "</div>";
+						}
+						else{
 							$consignment .= "</div>";
 						}
 						if($orderAvailable){

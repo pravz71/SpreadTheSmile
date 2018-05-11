@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	include_once("db_connect.php");
+	include_once("alert.php");
 	$volunteer_id = $_SESSION['id'];
 	$results = false;
 	if (isset($_POST['cancel']))
@@ -25,17 +26,11 @@
 	}
 	if($results)
 	{
-		echo "<script>
-				alert('Changes have been made successfully.');
-				window.location = '../volunteertasks.php';
-			 </script>";		
+		echo (generateAlert("update task successful"));		
 	}
 	else
 	{
-		echo "<script>
-				alert('Sorry something went wrong!');
-				window.location = '../volunteertasks.php';
-			 </script>";
+		echo (generateAlert("update task unsuccessful"));
 	}
 
 ?>

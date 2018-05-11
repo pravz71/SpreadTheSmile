@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	include_once("db_connect.php");
+	include_once("alert.php");
 	$valid = false;
 	if (isset($_POST['delivered'])) 
 	{
@@ -62,16 +63,10 @@
 	mysqli_close($connection);
 	if($valid)
 	{
-		echo "<script>
-				alert('Admin has been notified');
-				window.location = '../upcomingdeliveries.php';
-			 </script>";		
+		echo (generateAlert("valid acknowledge delivery"));		
 	}
 	else
 	{
-		echo "<script>
-				alert('Sorry something went wrong!');
-				window.location = '../upcomingdeliveries.php';
-			 </script>";
+		echo (generateAlert("invalid acknowledge delivery"));
 	}
 ?>

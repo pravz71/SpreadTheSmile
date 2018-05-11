@@ -54,7 +54,7 @@
 					<input type="email" name="username" placeholder="pravingupta@gmail.com" required="">
 					<label for="password">Password</label>
 					<input type="password" name="password" required="">
-					<a href="change_password.html">Forgot Password?</a>
+					<a href="changepassword.php">Forgot Password?</a>
 					<button type="submit" value="donate">SIGN IN</button>
 					<a href="signup.php">Don't have an Account? <u>Sign Up</u></a>
 				</form>

@@ -17,6 +17,18 @@
 		$item = $cart[$i][0];
 		$quantity = $cart[$i][1];
 		$ngo_id = $cart[$i][2];
+		$item_name = $cart[$i][3];
+		$sql_query = "SELECT * FROM `requests` WHERE `ngo_id`='$ngo_id'";
+		$results = mysqli_query($connection,$sql_query) or die ("Error: " . mysqli_error());
+		$data = mysqli_fetch_array($results,MYSQLI_ASSOC);
+		$db_quantity = $data[$item_name];
+		if($db_quantity<$quantity && $ngo_id != 1)
+		{
+			$w_quantity = $quantity - $db_quantity;
+			$sql_query = "INSERT INTO `consignments`(`id`, `item`, `quantity`, `ngo_id`, `order_id`) VALUES (NULL,'$item','$w_quantity','1','$order_id')";	
+			$results = mysqli_query($connection,$sql_query) or die ("Error: " . mysqli_error());
+			$quantity = $db_quantity;  
+		}
 		$sql_query = "INSERT INTO `consignments`(`id`, `item`, `quantity`, `ngo_id`, `order_id`) VALUES (NULL,'$item','$quantity','$ngo_id','$order_id')";
 		$results = mysqli_query($connection,$sql_query) or die ("Error: " . mysqli_error());
 	}

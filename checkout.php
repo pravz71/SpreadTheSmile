@@ -30,8 +30,9 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a href="cart.php">Home</a></li>
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Contact Us</a></li>
+						<li><a href="donationhistory.php">Donation History</a></li>
+						<li><a href="aboutus.html">About Us</a></li>
+						<li><a href="contactus.html">Contact Us</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>

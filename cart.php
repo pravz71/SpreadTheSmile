@@ -113,6 +113,7 @@
 					<hr>
 					<button type="submit">Proceed <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> </button>
 				</form>
+				<h4><strong><span style="color: red;">*</span> Additional quantity of any item will go to Warehouse.</strong></h4>
 			</div>
 		</div>
 		<div id="push" style="height: 100px"></div>

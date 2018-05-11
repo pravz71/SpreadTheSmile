@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	include_once("db_connect.php");
-
+	include_once("alert.php");
 	//NGO Request
 	if(isset($_POST['s_clothes']) && isset($_POST['l_clothes']) && isset($_POST['utensils']) && isset($_POST['stationeries']) && isset($_POST['blankets']))
 	{
@@ -26,16 +26,10 @@
 	mysqli_close($connection);
 	if ($results) 
 	{
-		echo "<script>
-				alert('Your request has been submitted.');
-				window.location = '../ngorequest.php';
-			 </script>";
+		echo (generateAlert("ngo request successful"));
 	}
 	else
 	{
-		echo "<script>
-				alert('Something went wrong. Please try again.');
-				window.location = '../ngorequest.php';
-			 </script>";
+		echo (generateAlert("ngo request unsuccessful"));
 	}
 ?>

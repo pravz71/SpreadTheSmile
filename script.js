@@ -184,4 +184,21 @@ $("#send_items input[type = 'date']").click(function () {
 	maxDate = dateExtractor(maxDate);
 	$(this).attr('min', minDate);
 	$(this).attr('max', maxDate);
-});                                                                                                                                                                                                                                                                                                                                                           // 
+});   
+
+// Change Password
+
+function validatePassword()
+{
+	var pass1 = $("input[name = password]").val();
+	var pass2 = $("input[name = confirm_password]").val();
+	if(pass1 !== pass2)
+	{
+		$(" input[name = password]").val("");
+		$(" input[name = confirm_password]").val("");
+		alert("Passwords do not match.");
+		return false;
+	}
+	console
+	return true;
+}                                                                                                                                                                                                                                                                                                                                                   

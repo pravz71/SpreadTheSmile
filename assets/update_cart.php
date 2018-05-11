@@ -19,12 +19,13 @@
 			$quantity = $_POST[$keys[$i]];
 			$item = $items[$keys[$i]];
 			$temp = $keys[$i] . "_name";
+			$item_name = $keys[$i];
 			if(isset($_POST[$temp]))
 			{
 				$ngo_id = $_POST[$temp];
 			}
 			$arr = array();
-			array_push($arr,$item,$quantity,$ngo_id);
+			array_push($arr,$item,$quantity,$ngo_id,$item_name);
 			array_push($consignments,$arr);
 		}
 	}

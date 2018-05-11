@@ -1,6 +1,6 @@
 <?php 
 	include_once("db_connect.php");
-
+	include_once("alert.php");
 	//code to prevent sql injection
 
 	if(isset($_POST['email']) && isset($_POST['mobile']) && isset($_POST['password']) && isset($_POST['confirm_password']) && isset($_POST['security_question']) && isset($_POST['security_answer']))
@@ -65,24 +65,15 @@
 		mysqli_close($connection);
 		if ($results) 
 		{
-			echo "<script>
-					alert('Account Created!!!');
-					window.location = '../login.php';
-				 </script>";
+			echo (generateAlert("account created"));
 		}
 		else
 		{
-			echo "<script>
-					alert('Something went wrong. Please try again.');
-					window.location = '../signup.php';
-				 </script>";
+			echo (generateAlert("account not created"));
 		}
 	} 
 	else 
 	{
-		echo "<script>
-				alert('Email-Id already exists!!!');
-				window.location = '../signup.php';
-			 </script>";
+		echo (generateAlert("email exists"));
 	}	
 ?>
